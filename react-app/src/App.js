@@ -11,10 +11,10 @@ class App extends Component {
       mode: "read",
       selected_content_id: 2,
       subject: { title: "WEB", sub: "World Wide Web!" },
-      welcome: { title: "welcome", desc: "Hello, React!" },
+      welcome: { title: "WELCOME", desc: "Hello, React!" },
       contents: [
         { id: 1, title: "HTML", desc: "HTML is HyperText..." },
-        { id: 2, title: "Css", desc: "CSS is for design..." },
+        { id: 2, title: "CSS", desc: "CSS is for design..." },
         {
           id: 3,
           title: "JavaScript",
@@ -40,8 +40,6 @@ class App extends Component {
         }
         i++;
       }
-      _title = this.state.contents[0].title;
-      _desc = this.state.contents[0].desc;
     }
     return (
       <div className="app">
