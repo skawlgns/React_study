@@ -9,7 +9,7 @@ const WordRelay = () => {
 
   const onSubmitForm = (e) => {
     e.preventDefault();
-    if (word[this.state.word.length - 1] === value[0]) {
+    if (word[word.length - 1] === value[0]) {
       setResult("딩동댕");
       setWord(value);
       setValue("");
