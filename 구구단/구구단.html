@@ -22,15 +22,16 @@
     <div id="root"></div>
     <script type="text/babel">
       class GuGuDan extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {
-            firstNum: Math.floor(Math.random() * 9 + 1),
-            secondNum: Math.floor(Math.random() * 9 + 1),
-            value: "",
-            result: "",
-          };
-        }
+        // constructor(props) {
+        //   super(props);
+        //   this. 생략 가능!
+        state = {
+          firstNum: Math.floor(Math.random() * 9 + 1),
+          secondNum: Math.floor(Math.random() * 9 + 1),
+          value: "",
+          result: "",
+        };
+        //}
 
         onSubmit = (e) => {
           e.preventDefault();
@@ -38,39 +39,50 @@
             parseInt(this.state.value) ===
             this.state.firstNum * this.state.secondNum
           ) {
-            this.setState({
-              result: this.state.value + " 정답",
-              firstNum: Math.floor(Math.random() * 9 + 1),
-              secondNum: Math.floor(Math.random() * 9 + 1),
-              value: "",
+            this.setState((prevState) => {
+              //setState Func
+              return {
+                result: "정답: " + prevState.value,
+                firstNum: Math.floor(Math.random() * 9 + 1),
+                secondNum: Math.floor(Math.random() * 9 + 1),
+                value: "",
+              };
             });
+            this.input.focus();
           } else {
             this.setState({
               result: "땡",
               value: "",
             });
+            this.input.focus();
           }
         };
         onChange = (e) => {
           this.setState({ value: e.target.value });
         };
 
+        input;
+
         render() {
           return (
-            <div>
+            //겉에 한 번 감싸는 쓸모없는 div 대신 사용한다.
+            <React.Fragment>
               <div>
                 {this.state.firstNum}곱하기{this.state.secondNum}는?
                 <form onSubmit={this.onSubmit}>
                   <input
+                    ref={(c) => {
+                      this.input = c;
+                    }}
                     type="number"
                     value={this.state.value}
                     onChange={this.onChange}
                   />
-                  <button>입력!</button>
+                  <button type="submit">입력</button>
                 </form>
                 <div>{this.state.result}</div>
               </div>
-            </div>
+            </React.Fragment>
           );
         }
       }

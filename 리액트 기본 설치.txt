@@ -1,0 +1,5 @@
+npm i react react-dom
+
+
+
+npm i -D webpack webpack-cli @babel/core @babel/preset-env @babel/preset-react babel-loader react-refresh @pmmmwh/react-refresh-webpack-plugin webpack-dev-server
