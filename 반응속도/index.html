@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응속도</title>
+  </head>
+  <style>
+    #screen {
+      width: 600px;
+      height: 500px;
+      margin: 10px;
+    }
+
+    #screen.waiting {
+      background-color: skyblue;
+    }
+
+    #screen.ready {
+      background-color: rgb(233, 86, 86);
+      color: white;
+    }
+
+    #screen.now {
+      background-color: seagreen;
+    }
+  </style>
+  <body>
+    <div id="root"></div>
+    <script src="./dist/app.js"></script>
+  </body>
+</html>
