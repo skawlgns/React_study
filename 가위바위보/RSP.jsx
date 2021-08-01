@@ -5,6 +5,18 @@ import React, { Component } from "react";
 // -> (setState/Props 가 바뀔때) -> shouldComponentUpdate(true) -> render -> componentDidUpdate
 // 부모가 자식을 없앴을 때 -> componentWillUnmount -> 소멸
 
+const rspCoords = {
+  바위: "0",
+  가위: "-142px",
+  보: "-284px",
+};
+
+const scores = {
+  가위: 1,
+  바위: 0,
+  보: -1,
+};
+
 class RSP extends Component {
   state = {
     result: "",
@@ -13,8 +25,12 @@ class RSP extends Component {
   };
 
   componentDidMount() {
-    setInterval(() => {
-      console.log("setIerval 라이프사이클 연동");
+    const { imgCoord } = this.state;
+    this.interval = setInterval(() => {
+      if (imgCoord === rspCoords.바위) {
+      } else if (imgCoord === rspCoords.가위) {
+      } else if (imgCoord === rspCoords.보) {
+      }
     }, 1000);
   } //컴포넌트가 첫 렌더를 성공적으로 실행하면 실행된다.
 
