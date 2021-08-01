@@ -12,7 +12,11 @@ class RSP extends Component {
     scroe: 0,
   };
 
-  componentDidMount() {} //컴포넌트가 첫 렌더를 성공적으로 실행하면 실행된다.
+  componentDidMount() {
+    setInterval(() => {
+      console.log("setIerval 라이프사이클 연동");
+    }, 1000);
+  } //컴포넌트가 첫 렌더를 성공적으로 실행하면 실행된다.
 
   componentDidUpdate() {} // 리렌더링 후 실행
 
