@@ -28,8 +28,17 @@ class RSP extends Component {
     const { imgCoord } = this.state;
     this.interval = setInterval(() => {
       if (imgCoord === rspCoords.바위) {
+        this.setState({
+          imgCoord: rspCoords.가위,
+        });
       } else if (imgCoord === rspCoords.가위) {
+        this.setState({
+          imgCoord: rspCoords.보,
+        });
       } else if (imgCoord === rspCoords.보) {
+        this.setState({
+          imgCoord: rspCoords.바위,
+        });
       }
     }, 1000);
   } //컴포넌트가 첫 렌더를 성공적으로 실행하면 실행된다.
