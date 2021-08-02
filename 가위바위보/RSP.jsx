@@ -20,13 +20,15 @@ const scores = {
 class RSP extends Component {
   state = {
     result: "",
-    imgCoord: 0,
-    scroe: 0,
+    imgCoord: rspCoords.바위,
+    score: 0,
   };
 
+  interval;
+
   componentDidMount() {
-    const { imgCoord } = this.state;
     this.interval = setInterval(() => {
+      const { imgCoord } = this.state;
       if (imgCoord === rspCoords.바위) {
         this.setState({
           imgCoord: rspCoords.가위,
@@ -45,7 +47,11 @@ class RSP extends Component {
 
   componentDidUpdate() {} // 리렌더링 후 실행
 
-  componentWillUnmount() {} //컴포넌트가 제거되기 직전
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  } //컴포넌트가 제거되기 직전
+
+  onClickBtn = (choice) => {};
 
   render() {
     const { result, score, imgCoord } = this.state;
@@ -58,13 +64,17 @@ class RSP extends Component {
           }}
         />
         <div>
-          <button id="rock" className="btn" onClick={onClickBtn("바위")}>
+          <button id="rock" className="btn" onClick={this.onClickBtn("바위")}>
             바위
           </button>
-          <button id="scissor" className="btn" onClick={onClickBtn("가위")}>
+          <button
+            id="scissor"
+            className="btn"
+            onClick={this.onClickBtn("가위")}
+          >
             가위
           </button>
-          <button id="paper" className="btn" onClick={onClickBtn("보")}>
+          <button id="paper" className="btn" onClick={this.onClickBtn("보")}>
             보
           </button>
         </div>
